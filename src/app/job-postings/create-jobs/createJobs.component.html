@@ -1,0 +1,37 @@
+
+<div style="text-align:center">
+
+        <h1>
+          add/edit route
+        </h1>
+    <form (submit)="onAddJob(postForm)" #postForm="ngForm">
+      <mat-form-field>
+          <input
+          matInput
+          type="text"
+          name="title"
+          [ngModel]="job.title"
+          required
+          minlength="3"
+          placeholder="Job Title"
+          #title="ngModel">
+        <mat-error *ngIf="title.invalid">Please enter a Job title.</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+          <textarea
+          matInput
+          rows="3"
+          name="desc"
+          [ngModel]="job.desc"
+          required
+          placeholder="Job Description"
+          #desc="ngModel"></textarea>
+        <mat-error *ngIf="desc.invalid">Please enter a Job Description.</mat-error>
+      </mat-form-field>
+      <button
+      mat-raised-button
+      color="accent"
+      type="submit">Post Job</button>
+    </form>
+</div>
+

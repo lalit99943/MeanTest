@@ -1,0 +1,19 @@
+<div>
+  <h1>
+    Job Postings
+  </h1>
+<mat-accordion multi="true" *ngIf="jobs.length > 0">
+    <mat-expansion-panel *ngFor="let job of jobs">
+      <mat-expansion-panel-header>
+        {{ job.title }}
+      </mat-expansion-panel-header>
+      <p>{{ job.desc }}</p>
+      <mat-action-row>
+        <a mat-button color="primary" [routerLink]="['/edit', job.id]">EDIT</a>
+        <button mat-button color="warn" (click)="onDelete(job.id)">DELETE</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <p class="info-text mat-body-1" *ngIf="jobs.length <= 0">No Jobs posted yet!</p>
+</div>
+
